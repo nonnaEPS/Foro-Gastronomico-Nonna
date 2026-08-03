@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from flask.helpers import make_response
 from flask_mysqldb import MySQL
 from flask_cors import CORS, cross_origin
-from modules.usuario import crear_usuario
+
 
 
 app = Flask(__name__)

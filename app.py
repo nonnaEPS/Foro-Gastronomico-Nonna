@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask.helpers import make_response
 from flask_mysqldb import MySQL
 from flask_cors import CORS, cross_origin
-from modules.usuario import crear_usuario
+import modules.usuario
 
 
 # para subir archivos
@@ -12,7 +12,6 @@ import os
 
 app = Flask(__name__)
 
-import os
 
 app.config["MYSQL_HOST"] = os.environ.get("DB_HOST")
 app.config["MYSQL_USER"] = os.environ.get("DB_USER")
@@ -23,8 +22,6 @@ app.config["MYSQL_PORT"] = int(os.environ.get("DB_PORT"))
 mysql = MySQL(app)
 
 CORS(app)
-
-
 
 
 
