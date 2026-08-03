@@ -1,0 +1,55 @@
+@URL = https://api-flask-railway-thiago-production.up.railway.app
+
+###
+# Obtener todos los usuarios
+GET {{URL}}/traer_usuarios
+
+
+###
+# Obtener todos las recetas
+GET {{URL}}/traer_recetas
+
+
+###
+# Crear usuario
+POST {{URL}}/registrar_usuario
+Content-Type: application/json
+
+{
+    "nombre": "Juan",
+    "email": "juan@gmail.con",
+    "fechaNacimiento": "2008-04-11",
+    "clave": "12345678"
+}
+
+
+###
+# Crear receta
+POST {{URL}}/subir_receta
+Content-Type: application/json
+
+{
+    "usuario_idusuario": "1",
+    "nombre": "Torta de Juan",
+    "imagenes": "uygg/ysdw/ejemplo",
+    "tiempo": "01:54",
+    "ingredientes": "Ejemplo",
+    "receta": "ABCD",
+    "likes": "0",
+    "dislikes": "0",
+    "cantidadComentarios": "0"
+}
+
+
+###
+# Actualizar usuario con id=1
+PUT {{URL}}/actualizar_usuario/1
+Content-Type: application/json
+
+{
+    "nom": "Juan Actualizado"
+}
+
+###
+# Eliminar usuario con id=1
+DELETE {{URL}}/eliminar_usuario/1
