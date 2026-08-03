@@ -1,5 +1,13 @@
 from src.conexion import obtener_conexion
 from datetime import date
+from flask import Flask, request, jsonify
+from flask.helpers import make_response
+from flask_mysqldb import MySQL
+from flask_cors import CORS, cross_origin
+from modules.usuario import crear_usuario
+
+
+app = Flask(__name__)
 
 def crear_usuario(
     nombre,
@@ -53,6 +61,32 @@ def crear_usuario(
     conexion.close()
 
     return filas > 0
+
+
+@app.route("/registrar_usuario", methods=["POST"])
+@cross_origin()
+def registrar_usuario():
+    nombre = request.json["nombre"]
+    usuario = request.json["nombre_usuario"]
+    fechaNacimiento = request.json["fecha_nacimiento"]
+    clave = request.json["clave"]
+    correo = request.json["correo"]
+
+    crear_usuario(nombre, usuario, correo, clave, fechaNacimiento)
+    #cursor = mysql.connection.cursor()
+
+    #sql = "INSERT INTO usuario(nombre, email, fechaNacimiento, clave) values(%s, %s, %s, %s);"
+    #cursor.execute(sql, (nombre, email, fechaNacimiento, clave))
+
+
+    #mysql.connection.commit()
+
+    #cursor.close()
+    response = make_response()
+
+    response = jsonify({"resultado":"Agregado nuevo usuario"})
+    return response
+
 
 
 def listar_usuarios():

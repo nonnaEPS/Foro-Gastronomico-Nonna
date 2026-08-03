@@ -12,7 +12,7 @@ GET {{URL}}/traer_recetas
 
 ###
 # Crear usuario
-POST {{URL}}/crear_usuario
+POST {{URL}}/registrar_usuario
 Content-Type: application/json
 
 {

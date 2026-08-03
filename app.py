@@ -25,27 +25,7 @@ mysql = MySQL(app)
 CORS(app)
 
 
-@app.route("/registrar_usuario", methods=["POST"])
-@cross_origin()
-def registrar_usuario():
-    nombre = request.json["nombre"]
-    email = request.json["email"]
-    fechaNacimiento = request.json["fechaNacimiento"]
-    clave = request.json["clave"]
 
-    cursor = mysql.connection.cursor()
-
-    sql = "INSERT INTO usuario(nombre, email, fechaNacimiento, clave) values(%s, %s, %s, %s);"
-    cursor.execute(sql, (nombre, email, fechaNacimiento, clave))
-
-
-    mysql.connection.commit()
-
-    cursor.close()
-    response = make_response()
-
-    response = jsonify({"resultado":"Agregado nuevo usuario"})
-    return response
 
 
 
