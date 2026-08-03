@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask.helpers import make_response
-from flask_mysqldb import MySQL
+#from flask_mysqldb import MySQL
 from flask_cors import CORS, cross_origin
 #import usuario
 
@@ -182,5 +182,5 @@ def actualizar_usuario(id):
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("MYSQL_PORT", 5000))
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
