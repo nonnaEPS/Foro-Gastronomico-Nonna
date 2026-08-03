@@ -1,4 +1,4 @@
-@URL = https://api-flask-railway-thiago-production.up.railway.app
+@URL = https://web-production-c797c.up.railway.app
 
 ###
 # Obtener todos los usuarios
@@ -12,14 +12,15 @@ GET {{URL}}/traer_recetas
 
 ###
 # Crear usuario
-POST {{URL}}/registrar_usuario
+POST {{URL}}/crear_usuario
 Content-Type: application/json
 
 {
-    "nombre": "Juan",
-    "email": "juan@gmail.con",
-    "fechaNacimiento": "2008-04-11",
-    "clave": "12345678"
+    "nombre": "Pablo",
+    "nombre_usuario": "Juanceto01",
+    "correo": "pnavas@gmail.con",
+    "clave": "12345678",
+    "fecha_nacimiento": "2008-04-11",
 }
 
 
