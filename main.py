@@ -1,6 +1,6 @@
 from menu import menu_principal
-from modules.usuario import crear_usuario
-from modules.usuario import iniciar_sesion
+from usuario import crear_usuario
+from usuario import iniciar_sesion
 
 while True:
 
